@@ -1,0 +1,2 @@
+use db_name   -> para seleccionar la base de datos
+
