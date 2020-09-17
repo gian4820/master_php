@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario HTML</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+
+<!--El metodo post lo que hace es enviarlo al  formulario encriptado. A diferencia de GET, que lo envia en
+la url-->
+
+    <form action="guardar.php" method="POST">
+
+        <label for="apellido">Apellido</label> <br>
+        <input type="text" name="apellido" placeholder="Apellido"> <br>
+
+        <label for="descripcion">Descripcion</label> <br>
+        <textarea name="descripcion" cols="30" rows="10" placeholder="Descripcion" required="required"></textarea> <br>
+
+        <input type="submit" name="enviar">
+
+    </form>
+   </body>
+</html>

@@ -1,0 +1,3 @@
+hola, soy un archivo de texto!
+aqui creamos esto
+para que podamos ver este archivo en .phpHola a todos!!<br> Hola a todos!!<br> Hola a todos!!
