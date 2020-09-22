@@ -25,3 +25,12 @@ INSERT INTO usuarios (email, password) VALUES (
     'pedro@gimenez.com',
     '1111'
 );
+
+INSERT INTO usuarios VALUES(
+    null,
+    'Rodrigo',
+    'Amuchastegui',
+    'Rodrigo@rodrigo.com',
+    '111',
+    '2017-09-20'
+);
