@@ -3,7 +3,9 @@
 SELECT * FROM USUARIOS WHERE email = 'gianfranco@merguerian.com.ar';
 
 /*
-OPERADORES DE COMPARACION
+***************************
+OPERADORES DE COMPARACION *
+***************************
 
 Igual           =
 Distinto        !=
@@ -18,7 +20,18 @@ No nulo         is not NULL
 Como            like
 No es como      not like
 
+*********************
+OPERADORES LOGICOS: *
+*********************
+OR
+AND
+NOT
 
+**********
+COMODINES*
+**********
+Cualquier caracter %
+Un caracter desonocido _
 */
 
 
@@ -27,3 +40,11 @@ No es como      not like
 */
 
 SELECT nombre, apellido, fecha FROM usuarios where YEAR(fecha)=2017;
+SELECT nombre, apellido, fecha FROM usuarios where year(fecha) !=2017 or isnull(fecha);
+
+/*
+2. Mostrar el email de los usuarios cuyo apellido contenga la letra A, 
+y que su contraseña sea 111
+*/
+
+SELECT email FROM usuarios WHERE apellido LIKE '%a%' AND password = 111;
