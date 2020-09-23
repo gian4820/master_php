@@ -1,0 +1,1 @@
+UPDATE usuarios SET nombre='Pedro', apellido='Giemenz' WHERE id=3;
