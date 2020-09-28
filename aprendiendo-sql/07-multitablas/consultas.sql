@@ -40,7 +40,7 @@ GROUP BY e.usuario_id;
 
 SELECT u.email, COUNT(e.id) AS 'Cantidad de entradas'
 FROM  usuarios u
-INNER JOIN entradas e ON e.usuario_id = u.id;
+INNER JOIN entradas e ON e.usuario_id = u.id
 GROUP BY e.usuario_id;
 
 
