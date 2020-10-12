@@ -4,8 +4,33 @@
 
 <div id=container>
 <aside id="sidebar">
+
+    <!-- Mostramos el nombre del usuario loggeado-->
+    <?php if(isset($_SESSION['user'])){ ?>
+        <div id="user_loggedin" class="block-aside"> 
+            <h3> Bienvenido, <?= $_SESSION['user']['nombre'] . ' ' . $_SESSION['user']['apellido']; ?> </h3>
+
+            <!-- Botones-->
+            <a href="" class="boton-verde">Create new</a>
+            <a href="" class="boton-naranja">Account</a>
+            <a href="logout.php" class="boton">Logout</a>
+            
+        </div>
+    <?php } ?>    
+
+
     <div id="login" class="block-aside">
         <h3>Login</h3>
+
+        <!-- Mostramos Error si no ingresa correctamente-->
+        <?php if(isset($_SESSION['error_login'])){ ?>
+                <div class="alerta alerta-error"> 
+                     <?= $_SESSION['error_login']; ?>
+                </div>
+        <?php } ?>    
+
+        <!-- Formulario Login-->    
+
         <form action="login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" name="email">
