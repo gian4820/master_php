@@ -13,7 +13,7 @@ if(isset($_POST)){
     //Lo que hacemos abajo es como una condicion if el ? hace la senetencia true, y el else es el :
     $name = isset($_POST['name']) ? mysqli_real_escape_string ($db, $_POST['name']) : false;
     $lastname = isset($_POST['lastname']) ? mysqli_real_escape_string($db, $_POST['lastname']) : false;
-    $email = isset($_POST['email']) ? mysqli_real_escape_string ($db, $_POST['email']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string ($db, trim($_POST['email'])) : false;
     $password = isset($_POST['password']) ? mysqli_real_escape_string ($db,  $_POST['password']) : false;
 
 
