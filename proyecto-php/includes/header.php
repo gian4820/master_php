@@ -1,5 +1,6 @@
 <!-- Conexion DB -->
 <?php require_once 'conexion.php' ?>
+<?php include_once 'includes/helpers.php'?>
 
 <!-- HTML Header -->
 
@@ -27,18 +28,22 @@
                 <li>
                     <a href="index.php">Inicio</a>
                 </li>
-                <li>
-                    <a href="index.php">Categoria 1</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoria 2</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoria 3</a>
-                </li>
-                <li>
-                    <a href="index.php">Categoria 4</a>
-                </li>
+                
+                <!-- Traemos las categorias de la DB y la mostramos en el NAV-->
+                <?php 
+                    $categories = listCategories($db); 
+                        if(!empty($categories)){
+                            while($categoria = mysqli_fetch_assoc($categories)){
+                ?>
+                                <li>
+                                    <a href="categories.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a>
+                                </li>
+               <?php 
+                            } 
+                        }        
+               ?>
+                
+                
                 <li>
                     <a href="index.php">Sobre mi</a>
                 </li>
