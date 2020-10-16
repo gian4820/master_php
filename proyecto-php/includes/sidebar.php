@@ -12,7 +12,7 @@
             <!-- Botones-->
             <a href="create-post.php" class="boton-verde">New Post</a>
             <a href="create-categories.php" class="boton-naranja">Create Category</a>
-            <a href="" class="boton-rojo">Account</a>
+            <a href="account.php" class="boton-rojo">Account</a>
             <a href="logout.php" class="boton">Logout</a>
             
         </div>

@@ -14,7 +14,7 @@ include_once 'includes/sidebar.php';
     <br>
 
     <form action="save-categories.php" method="POST">
-        <label for="name">Categorie:</label>
+        <label for="name">Category:</label>
         <input type="text" name="name">
 
         <input type="submit" value="Create">

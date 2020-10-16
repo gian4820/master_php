@@ -13,12 +13,18 @@ function deleteErrors(){
 
     if(isset($_SESSION['errores'])){
         $_SESSION['errores'] = null;
-        $delet = session_unset();
+        $delet = true;
     };
+
+    if(isset($_SESSION['errors_input'])){
+        $_SESSION['errors'] = null;
+        $delet = true;
+    };
+
 
     if(isset($_SESSION['finished'])){
         $_SESSION['finished'] = null;
-        $delet = session_unset();
+        $delet = true;
     }
     
     return $delet;
