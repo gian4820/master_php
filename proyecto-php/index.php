@@ -8,18 +8,18 @@
 
     <!--CONTENIDO-->
     <div id=principal>
-        <h1>Ultimas entradas</h1>
+        <h1>Last posts</h1>
 
         <!--Traemos las ultimas 4 entradas de la DB -->
         <?php
-            $inp = lastInputs($db);
+            $inp = lastInputs($db, TRUE);
 
             if(!empty($inp)){
                 while($in = mysqli_fetch_assoc($inp)){
             ?>   
 
             <article class="entrada">
-                <a href="">
+                <a href="post.php?id=<?=$in['id']?>">
                     <h2>
                         <?= $in['titulo']?> 
                     </h2>
@@ -37,11 +37,10 @@
                 }
             }
         ?>
-
         <!--Boton ver toda las entradas -->
 
         <div id="ver-todas">
-            <a href="">Ver todas las entradas</a>
+            <a href="posts.php">Ver todas las entradas</a>
         </div>
     </div>
 

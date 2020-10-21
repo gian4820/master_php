@@ -1,3 +1,5 @@
+<!-- CREATE POST PAGE-->
+
 <?php
 include_once 'includes/redirection.php';
 include_once 'includes/header.php';

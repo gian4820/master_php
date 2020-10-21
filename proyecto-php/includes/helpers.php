@@ -43,13 +43,35 @@ function listCategories($conexion){
     return $result;
 }
 
+//Listamos  la categoria seleccionada
+function listCategory($conexion, $id){
+    $sql = "SELECT * FROM categorias WHERE id = $id;";
+    $categories = mysqli_query($conexion, $sql);
+
+    $result = array();
+    if($categories && mysqli_num_rows($categories) >= 1){
+        $result = mysqli_fetch_assoc($categories);
+    }
+    
+    return $result;
+}
 
 //Traemos las entradas de la DB
-function lastInputs($conexion){
+function lastInputs($conexion, $limit = null, $category = null){
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e " . 
-            "INNER JOIN categorias c ON e.categoria_id = c.id " . 
-            "ORDER BY e.id DESC LIMIT 4";
+            "INNER JOIN categorias c ON e.categoria_id = c.id "; 
+            
+    if(!empty($category)){
+        $sql .= " WHERE c.id = $category ";
+    }
 
+    $sql .= " ORDER BY e.id DESC ";
+
+    if($limit){
+        //aqui le concateno la funcion de arrica
+        $sql .= " LIMIT 4; ";
+    }
+   
     $inp = mysqli_query($conexion, $sql);
     $result = array();
 
@@ -58,6 +80,19 @@ function lastInputs($conexion){
     }
 
     return $result;
-}
+};
 
 
+function selectPost($conexion, $id){
+    $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e " .
+            "INNER JOIN categorias c ON c.id = e.categoria_id ".
+            "WHERE e.id = $id";
+    $query = mysqli_query($conexion, $sql);
+    
+    $result = array();
+    if($query && mysqli_num_rows($query) >= 1){
+        $result = mysqli_fetch_assoc($query);
+    }
+    return $result;
+    
+};
