@@ -84,8 +84,10 @@ function lastInputs($conexion, $limit = null, $category = null){
 
 
 function selectPost($conexion, $id){
-    $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e " .
+    $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre, ' ', u.apellido) AS 'usuario' " .
+            "FROM entradas e " .
             "INNER JOIN categorias c ON c.id = e.categoria_id ".
+            "INNER JOIN usuarios u ON u.id = e.usuario_id " .
             "WHERE e.id = $id";
     $query = mysqli_query($conexion, $sql);
     

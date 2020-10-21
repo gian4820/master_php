@@ -8,7 +8,7 @@ include_once 'includes/sidebar.php';
 <!--Formulario de Categorias -->
 
 <div id="principal">
-    <h1>Create categories</h1>
+    <h1>Create category</h1>
     <br>
     <p>Create new categories for the blog, so users can use it.</p>
     <br>
