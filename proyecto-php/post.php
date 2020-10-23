@@ -40,8 +40,8 @@ if(!isset($select_post['id'])){
     <?php
     if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $select_post['usuario_id']){
     ?>
-        <a href="edit-post.php" class="boton">Edit</a>
-        <a href="delete-post.php" class="boton-rojo">Delete</a>
+        <a href="edit-post.php?id=<?=$select_post['id']?>" class="boton">Edit</a>
+        <a href="delete-post.php?id=<?=$select_post['id']?>" class="boton-rojo">Delete</a>
     <?php
     }
     ?>

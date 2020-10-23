@@ -1,20 +1,27 @@
 <!--SIDEBAR-->
 
-
 <div id=container>
 <aside id="sidebar">
+
+    <!--Buscar en blog -->
+    <div id=buscador class="block-aside">
+        <h3>Search in blog</h3>
+        <form action="search.php" method="POST">
+            <label for="search">Search:</label>
+            <input type="text" name="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
 
     <!-- Mostramos el nombre del usuario loggeado-->
     <?php if(isset($_SESSION['user'])){ ?>
         <div id="user_loggedin" class="block-aside"> 
-            <h3> Bienvenido, <?= $_SESSION['user']['nombre'] . ' ' . $_SESSION['user']['apellido']; ?> </h3>
-
+            <h3> Wellcome, <?= $_SESSION['user']['nombre'] . ' ' . $_SESSION['user']['apellido']; ?> </h3>
             <!-- Botones-->
             <a href="create-post.php" class="boton-verde">New Post</a>
             <a href="create-categories.php" class="boton-naranja">Create Category</a>
             <a href="account.php" class="boton-rojo">Account</a>
             <a href="logout.php" class="boton">Logout</a>
-            
         </div>
     <?php } ?>    
 

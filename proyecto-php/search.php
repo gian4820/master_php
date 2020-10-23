@@ -1,22 +1,25 @@
-<!--Incluimos el Header-->
+<?php 
 
-<?php require_once 'includes/header.php' ?>
+if(!isset($_POST['search'])){
+    header("Location: index.php");
+}
 
-
-    <!-- Incluimos el sidebar-->
-    <?php require_once 'includes/sidebar.php' ?>
+//Incluimos el Header-->
+ require_once 'includes/header.php' ;
+//Incluimos el sidebar-->
+ require_once 'includes/sidebar.php' ?>
 
     <!--CONTENIDO-->
     <div id=principal>
-        <h1>Last posts</h1>
+        <h1>Search: <?= $_POST['search'] ?></h1>
 
-        <!--Traemos las ultimas 4 entradas de la DB -->
+        <!--Traemos todas las entradas de la DB -->
         <?php
-            $inp = lastInputs($db, TRUE);
+            $inp = lastInputs($db, null, null, $_POST['search']);
 
-            if(!empty($inp)){
+            if(!empty($inp) && mysqli_num_rows($inp)>= 1){
                 while($in = mysqli_fetch_assoc($inp)){
-            ?>   
+        ?>   
 
             <article class="entrada">
                 <a href="post.php?id=<?=$in['id']?>">
@@ -35,16 +38,18 @@
 
             <?php
                 }
+            }else{
+            ?>
+                <br>
+                <br>
+                <div class="alerta" style="color: slategray; font-size: 15px;">No posts yet for this category... Add new one!</div>
+            
+            <?php
             }
         ?>
+
         <!--Boton ver toda las entradas -->
-
-        <div id="ver-todas">
-            <a href="posts.php">All posts</a>
-        </div>
     </div>
-
-
 
 <!--Incluimos el footer-->
 <?php include_once 'includes/footer.php'?>

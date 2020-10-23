@@ -57,12 +57,17 @@ function listCategory($conexion, $id){
 }
 
 //Traemos las entradas de la DB
-function lastInputs($conexion, $limit = null, $category = null){
+function lastInputs($conexion, $limit = null, $category = null, $search = null){
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e " . 
             "INNER JOIN categorias c ON e.categoria_id = c.id "; 
             
     if(!empty($category)){
         $sql .= " WHERE c.id = $category ";
+    }
+
+    //averiguamos si search no es null, y buscamos en la DB
+    if(!empty($search)){
+        $sql .= "WHERE e.titulo LIKE '%$search%' ";
     }
 
     $sql .= " ORDER BY e.id DESC ";
@@ -82,7 +87,7 @@ function lastInputs($conexion, $limit = null, $category = null){
     return $result;
 };
 
-
+//Trae el post seleccionado. Desde la DB
 function selectPost($conexion, $id){
     $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre, ' ', u.apellido) AS 'usuario' " .
             "FROM entradas e " .
@@ -98,3 +103,4 @@ function selectPost($conexion, $id){
     return $result;
     
 };
+

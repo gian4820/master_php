@@ -18,7 +18,7 @@
     <!--CABECERA-->
     <header id="header">
         <div id="logo">
-            <a href="index.php">Blog de Video Juegos</a>
+            <a href="index.php">Blog of video games</a>
         </div>
 
         <!--MENU-->
@@ -26,7 +26,7 @@
         <nav id="nav">
             <ul>
                 <li>
-                    <a href="index.php">Inicio</a>
+                    <a href="index.php">Home</a>
                 </li>
                 
                 <!-- Traemos las categorias de la DB y la mostramos en el NAV-->
@@ -45,10 +45,10 @@
                 
                 
                 <li>
-                    <a href="index.php">Sobre mi</a>
+                    <a href="index.php">About us</a>
                 </li>
                 <li>
-                    <a href="index.php">Contacto</a>
+                    <a href="index.php">Contact</a>
                 </li>
             </ul>
         </nav>
