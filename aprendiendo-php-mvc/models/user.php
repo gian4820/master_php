@@ -35,7 +35,7 @@ class User{
     }
 
     //Sacar usuarios
-    public function listAll(){
+    public function selectAll(){
         echo "Sacamos todos los usuarios";
     }
 }
