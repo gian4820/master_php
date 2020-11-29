@@ -1,15 +1,24 @@
-<h1>Wellcome to my web with MVC</h1>
+<h1>Bienvenido a mi web con MVC</h1>
 <?php
+require_once 'autoload.php';
 
-require_once 'controllers/user.php';
-$controller =  new UserController();
-
-
-
-if(isset($_GET{'action'})){
-    $action = $_GET['action'];
-    $controller->$action();
+if(isset($_GET['controller'])){
+	$nombre_controlador = $_GET['controller'].'Controller';
+}else{
+	echo "La pagina que buscas no existe";
+	exit();
 }
 
-
+if(class_exists($nombre_controlador)){	
+	$controlador = new $nombre_controlador();
+	
+	if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){
+		$action = $_GET['action'];
+		$controlador->$action();
+	}else{
+		echo "La pagina que buscas no existe";
+	}
+}else{
+	echo "La pagina que buscas no existe";
+}
 
