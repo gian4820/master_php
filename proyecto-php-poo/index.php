@@ -1,10 +1,22 @@
 <?php
     require_once 'autoload.php';
+    require_once 'config/db.php';
+    require_once 'config/parameters.php';
+    require_once 'views/layout/header.php';
+    require_once 'views/layout/sidebar.php';
+
+    //Conexion a BD
+    $db = Database::connect();
+
+    function showError(){
+        $error = new errorController();
+        $error ->index();
+    }
      
     if(isset($_GET['controller'])){
         $nombre_controlador = $_GET['controller'].'Controller';
     }else{
-        echo "la página no existe";
+        showError();
         exit();
     }
      
@@ -15,12 +27,20 @@
         if(isset($_GET['action']) && method_exists($controlador,$_GET['action'])){
             $action = $_GET['action'];
             $controlador->$action();
-        }else{
-            echo "La página no existe";
+        }
+        elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
+            $action_default = action_default;
+            $controlador->$action_default();
+        }        
+        else{
+            showError();
         }
      
     }else{
-        echo "la página no existe";
+        showError();
     }
      
-    ?>
+
+    require_once 'views/layout/footer.php';
+
+?>
