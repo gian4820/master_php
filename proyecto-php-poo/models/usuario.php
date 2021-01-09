@@ -22,31 +22,31 @@ class usuario{
     }
 
     public function getNombre(){
-        return $this->db->real_escape_string($this->nombre);
+        return $this->nombre;
     }
     public function setNombre($nombre){
-        $this->nombre = $nombre;
+        $this->nombre = $this->db->real_escape_string($nombre);
     }
 
     public function getApellido(){
-        return $this->db->real_escape_string($this->apellido);
+        return $this->apellido;
     }
     public function setApellido($apellido){
-        $this->apellido = $apellido;
+        $this->apellido = $this->db->real_escape_string($apellido);
     }
 
     public function getEmail(){
-        return $this->db->real_escape_string($this->email);
+        return $this->email;
     }
     public function setEmail($email){
-        $this->email = $email;
+        $this->email = $this->db->real_escape_string($email);
     }
 
     public function getPassword(){
-        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+        return $this->password;
     }
     public function setPassword($password){
-        $this->password = $password;
+        $this->password = password_hash($this->db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
     
     public function getRol(){
@@ -74,5 +74,5 @@ class usuario{
         return $result;
     }
 
-
+ 
 }
