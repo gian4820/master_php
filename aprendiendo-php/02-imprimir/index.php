@@ -12,7 +12,7 @@
 		<?php
 		    // Titular de la sección
 			echo "<h3>Listado de videojuegos:</h3>";
-			echo "<h3>Listado de videojuegos:</h3>";
+			echo "<h3>Listado de juegos:</h3>";
 
 			
 			/*
